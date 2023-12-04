@@ -8,19 +8,40 @@ let oneEuroIs = {
 function fromEuroToDollar(cantidad) {
      // Guardo en una variable el valor de la moneda que quiero (posición)
     const moneda = oneEuroIs["USD"];
+
     //Multiplico el valor de la moneda base por la que el usuario introduce
     const euroInDollar = cantidad * moneda;
-    
-    // Con toFixed escojo los decimales a redondear
-    const dollarRounded = euroInDollar.toFixed(3);
 
     // Como ha sido convertido a string, hago parseFloat para que vuelva a ser 
     //decimal
-    return parseFloat(dollarRounded);
+    return parseFloat(euroInDollar);
 }
 
-//Prueba
+// Las demás funciones usan la misma lógica cambiando el valor de la moneda base
+function fromDollarToYen (cantidad) {
+   const moneda = oneEuroIs["JPY"];
+
+   const dollarInYen = cantidad * moneda
+
+   return parseFloat(dollarInYen);
+}
+
+function fromYenToPound(cantidad) {
+   const moneda = oneEuroIs["GBP"];
+
+   const poundInYen = cantidad * moneda;
+
+   return parseFloat(poundInYen);
+}
+
+//Prueba fromEuroToDollar
 console.log(fromEuroToDollar(50))
 
-// Exportar función
-module.exports = { fromEuroToDollar };
+//Prueba fromDollarToYen
+console.log(fromDollarToYen(50))
+
+//Prueba fromYenToPound
+console.log(fromYenToPound(50))
+
+// Exportar funciones
+module.exports = { fromEuroToDollar, fromDollarToYen, fromYenToPound };

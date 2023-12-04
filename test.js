@@ -1,10 +1,26 @@
 // Importar fuinción de app.js
-const { fromEuroToDollar } = require('./app.js');
+const { fromEuroToDollar, fromDollarToYen, fromYenToPound } = require('./app.js');
 
-// Hacer test de la función
-test('One euro should be 1.07 dollars', () => {
-    const dollars = fromEuroToDollar(3.5);
-    const expected = 3.5 * 1.07; 
+// Test fromEuroToDollar
+test('USD: 53.5.', () => {
+    const dinero = fromEuroToDollar(50)
+    const expected = 50 * 1.07; 
     // El resultado esperado
-    expect(fromEuroToDollar(3.5)).toBe(3.745);
+    expect(fromEuroToDollar(50)).toBe(53.5);
+});
+
+// Test fromDollarToYen
+test('JPY: 7825.', () => {
+    const dinero = fromDollarToYen(50)
+    const expected = 50 * 156.5; 
+    // El resultado esperado
+    expect(fromDollarToYen(50)).toBe(7825);
+});
+
+// Test fromYenToPound
+test('GBP: 43.5.', () => {
+    const dinero = fromYenToPound(50)
+    const expected = 50 * 0.87; 
+    // El resultado esperado
+    expect(fromYenToPound(50)).toBe(43.5);
 });
